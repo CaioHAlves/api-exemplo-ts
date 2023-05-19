@@ -34,6 +34,39 @@ export const swaggerConfig = {
         }
       }
     },
+    "/users/login": {
+      post: {
+        tags: ["User"],
+        description: "Realiza login de um usuario",
+        requestBody: {
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                properties: {
+                  email: {
+                    type: "string",
+                    require: true
+                  },
+                  password: {
+                    type: "string",
+                    require: true
+                  }
+                }
+              }
+            }
+          }
+        },
+        responses: {
+          200: {
+            description: "ok"
+          },
+          201: {
+            description: "Usuario Criado com sucesso"
+          }
+        }
+      }
+    }
   },
   components: {
     schemas: {

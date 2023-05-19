@@ -5,7 +5,10 @@ import { swaggerConfig } from './swagger/swaggerConfig'
 
 import UserRoutes from './routes/UserRoutes'
 
-const whitelist: Array<string | undefined> = []
+const whitelist: Array<string | undefined> = [
+  "http://localhost:3000"
+]
+
 const port = process.env.PORT
 
 const app = express()
