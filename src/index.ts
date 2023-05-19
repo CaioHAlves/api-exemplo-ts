@@ -34,5 +34,7 @@ if (process.env.AMBIENT !== "production") {
 }
 
 app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
+  if (process.env.AMBIENT !== "production") {
+    console.log(`Server started on port ${port}`);
+  }
 });

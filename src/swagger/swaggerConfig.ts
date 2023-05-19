@@ -1,10 +1,10 @@
 export const swaggerConfig = {
   openapi: "3.0.3",
   info: {
-    title: "API Cadastro Cliente Madtrat",
+    title: "API MHD - Mohamed",
     author: "https://github.com/CaioHAlves",
     contact: {
-      name: "API Madtrat",
+      name: "API MHDt",
       url: "https://caiohalves.vercel.app",
       email: "caio.henriquealves@outlook.com"
     }
