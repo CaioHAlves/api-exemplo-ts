@@ -1,25 +1,25 @@
 import { Request, Response } from 'express'
 import { genSaltSync, hashSync } from "bcrypt"
 import jwt from 'jsonwebtoken'
-import User from '../../models/user'
+import { User } from '../../models/user'
 
 const salt = genSaltSync(12);
 
-class UserCreate {
+export class UserCreate {
   static async create(req: Request, res: Response) {
-    const { name, password, email, tell } = req.body
+    const { name, password, email, tell, isAStudent } = req.body
 
     
     if (!name) {
-      res.status(422).json({ message: "Nome é obrigatório!" })
+      res.status(422).json({ message: "Nome é obrigatório!", field: "name" })
       return
     }
     if (!email) {
-      res.status(422).json({ message: "Email é obrigatório!" });
+      res.status(422).json({ message: "Email é obrigatório!", field: "email" });
       return
     }
     if (!password) {
-      res.status(422).json({ message: "Senha é obrigatório!" });
+      res.status(422).json({ message: "Senha é obrigatório!", field: "password" });
       return
     }
 
@@ -36,7 +36,8 @@ class UserCreate {
         name,
         email,
         tell,
-        password: passwordHash
+        password: passwordHash,
+        isAStudent
       })
         .then((newUser) => {
           const token = jwt.sign({
@@ -48,6 +49,7 @@ class UserCreate {
             token,
             name, 
             email,
+            isAStudent,
             message: "Usuário criado com sucesso"
           })
         })
@@ -60,5 +62,3 @@ class UserCreate {
       })
   }
 }
-
-export default UserCreate

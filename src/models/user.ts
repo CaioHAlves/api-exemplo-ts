@@ -2,7 +2,7 @@ import mongoose from '../db/conn'
 
 const { Schema } = mongoose
 
-const User = mongoose.model(
+export const User = mongoose.model(
   "Users",
   new Schema({
     name: {
@@ -20,10 +20,12 @@ const User = mongoose.model(
     password: {
       type: String,
       required: true
+    },
+    isAStudent: {
+      type: Boolean,
+      required: true
     }
   },
   { timestamps: false }
   )
 )
-
-export default User

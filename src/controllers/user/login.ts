@@ -1,9 +1,9 @@
 import { Request, Response } from 'express'
 import { compareSync } from "bcrypt"
 import jwt from 'jsonwebtoken'
-import User from '../../models/user'
+import { User } from '../../models/user'
 
-class UuserLogin {
+export class UserLogin {
   static async post(req: Request, res: Response) {
     const { password, email } = req.body
 
@@ -37,7 +37,8 @@ class UuserLogin {
           token: token,
           name: user.name,
           email: user.email,
-          tell: user.tell
+          tell: user.tell,
+          isAStudent: user.isAStudent
         })
       })
       .catch((error) => {
@@ -45,5 +46,3 @@ class UuserLogin {
       })
   }
 }
-
-export default UuserLogin
