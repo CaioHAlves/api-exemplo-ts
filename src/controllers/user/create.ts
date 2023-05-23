@@ -37,7 +37,7 @@ export class UserCreate {
         email,
         tell,
         password: passwordHash,
-        isAStudent
+        isAStudent: isAStudent ? isAStudent : true
       })
         .then((newUser) => {
           const token = jwt.sign({
