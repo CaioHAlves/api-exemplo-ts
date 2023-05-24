@@ -7,7 +7,7 @@ import UserRoutes from './routes/UserRoutes'
 import UserMeasurements from './routes/UserMeasurements'
 
 const whitelist: Array<string | undefined> = [
-  "http://localhost:3000"
+  "https://app-mhd.pages.dev"
 ]
 
 const port = process.env.PORT

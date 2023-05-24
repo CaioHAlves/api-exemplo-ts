@@ -87,6 +87,59 @@ export const swaggerConfig: JsonObject | SwaggerOptions | SwaggerUiOptions = {
         }
       }
     },
+    "/users/delete/{userId}": {
+      delete: {
+        tags: ["User"],
+        description: "Delete um usuario",
+        parameters: [
+          { in: "path", name: "userId", required: true }
+        ],
+        responses: {
+          200: {
+            description: "ok"
+          },
+          500: {
+            description: "Erro de conexão com o servidores"
+          }
+        }
+      }
+    },
+    "/users/update/{userId}": {
+      patch: {
+        tags: ["User"],
+        description: "Atualiza dados de um usuario",
+        parameters: [
+          { in: "path", name: "userId", required: true },
+        ],
+        requestBody: {
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                properties: {
+                  name: { type: "string", example: "User" },
+                  email: { type: "string", example: "user@teste.com.br" },
+                  password: { type: "string", example: "123456" },
+                  tell: { type: "string", example: "199123456" },
+                  newPassword: { type: "string", example: "123456" }
+                }
+              }
+            }
+          }
+        },
+        responses: {
+          200: {
+            description: "ok"
+          },
+          204: {
+            description: "ok"
+          },
+          500: {
+            description: "Erro de conexão com o servidores"
+          }
+        }
+      }
+    },
     "/measurements/create": {
       post: {
         tags: ["Measurements"],
