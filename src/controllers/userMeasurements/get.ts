@@ -29,9 +29,7 @@ export class UserMeasurementsGet {
             updatedAt: response.updatedAt,
           })
         } else {
-          return res.status(422).json({
-            message: "Erro ao obter dados"
-          })
+          return res.status(200).json(null)
         }
       })
       .catch(error => {

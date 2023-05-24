@@ -19,17 +19,28 @@ export class UserMeasurementsCreate {
       .then((response) => {
         UserMeasurements.create({
           weight, 
-          arm, 
-          waist, 
-          leg, 
+          arm: arm || 0, 
+          waist: waist || 0, 
+          leg: leg || 0, 
           imc: imcForDataBase.toFixed(2), 
-          bodyFat, 
-          leanMass, 
+          bodyFat: bodyFat || 0, 
+          leanMass: leanMass || 0, 
           height,
           userId: response!._id
         })
           .then(response => {
-            return res.status(201).json(response)
+            return res.status(201).json({
+              weight: response.weight, 
+              arm: response.arm, 
+              waist: response.waist, 
+              leg: response.leg, 
+              imc: response.imc, 
+              bodyFat: response.bodyFat, 
+              leanMass: response.leanMass, 
+              height: response.height,
+              userId: response.userId,
+              id: response._id
+            })
           })
           .catch(error => {
             return res.status(422).json({
