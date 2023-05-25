@@ -140,6 +140,33 @@ export const swaggerConfig: JsonObject | SwaggerOptions | SwaggerUiOptions = {
         }
       }
     },
+    "/users/reset-password": {
+      patch: {
+        tags: ["User"],
+        description: "Reseta a senha de um usuario",
+        requestBody: {
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                properties: {
+                  email: { type: "string", example: "user@teste.com.br" },
+                  tell: { type: "string", example: "19912345678" }
+                }
+              }
+            }
+          }
+        },
+        responses: {
+          200: {
+            description: "ok"
+          },
+          201: {
+            description: "Dados cadastrados com sucesso"
+          }
+        }
+      }
+    },
     "/measurements/create": {
       post: {
         tags: ["Measurements"],

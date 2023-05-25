@@ -27,7 +27,7 @@ export class UserCreate {
     User.findOne({ email: email })
     .then((existsUser) => {
       if (existsUser) {
-        res.status(422).json({ message: "Email já cadastrado" });
+        res.status(422).json({ message: "Email já cadastrado", field: "email" });
         return;
       }
       

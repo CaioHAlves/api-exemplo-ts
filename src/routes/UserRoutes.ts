@@ -13,5 +13,6 @@ router.post("/login", UserLogin.post)
 router.get("/getAll", UserGetAll.getAllUsers)
 router.patch("/update/:userId", UserUpdate.update)
 router.delete("/delete/:userId", UserDelete.delete)
+router.patch("/reset-password", UserUpdate.resetPassword)
 
 export default router
