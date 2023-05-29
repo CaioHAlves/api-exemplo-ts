@@ -228,7 +228,75 @@ export const swaggerConfig: JsonObject | SwaggerOptions | SwaggerUiOptions = {
           }
         }
       }
-    }
+    },
+    "/charge/create": {
+      post: {
+        tags: ["Charge"],
+        description: "Cria as cargas utilizadas durante o treino",
+        requestBody: {
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                $ref: "#/components/schemas/Charge"
+              }
+            }
+          }
+        },
+        responses: {
+          200: {
+            description: "ok"
+          },
+          201: {
+            description: "Carga criada"
+          }
+        }
+      }
+    },
+    "/charge/get/{userId}": {
+      get: {
+        tags: ["Charge"],
+        description: "Recupera as cargas utilizadas por um usuario",
+        parameters: [
+          { in: "path", name: "userId", required: true }
+        ],
+        responses: {
+          200: {
+            description: "ok"
+          },
+          201: {
+            description: "Carga criada"
+          }
+        }
+      }
+    },
+    "/charge/patch/{id}": {
+      patch: {
+        tags: ["Charge"],
+        description: "Atualiza as cargas utilizadas por um usuario",
+        parameters: [
+          { in: "path", name: "id", required: true }
+        ],
+        requestBody: {
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                $ref: "#/components/schemas/Charge"
+              }
+            }
+          }
+        },
+        responses: {
+          200: {
+            description: "ok"
+          },
+          201: {
+            description: "Carga criada"
+          }
+        }
+      }
+    },
   },
   components: {
     schemas: {
@@ -259,6 +327,23 @@ export const swaggerConfig: JsonObject | SwaggerOptions | SwaggerUiOptions = {
             type: "boolean",
             description: "Define se usuario é aluno ou professor",
             example: false
+          }
+        }
+      },
+      Charge: {
+        type: "object",
+        properties: {
+          clean: {
+            type: "number",
+            description: "Peso (em kg)"
+          },
+          deadlift: {
+            type: "number",
+            description: "Peso (em kg)"
+          },
+          userId: {
+            type: "string",
+            description: "Id usuario"
           }
         }
       },

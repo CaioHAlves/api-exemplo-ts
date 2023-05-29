@@ -5,6 +5,7 @@ import { swaggerConfig } from './swagger/swaggerConfig'
 
 import UserRoutes from './routes/UserRoutes'
 import UserMeasurements from './routes/UserMeasurements'
+import ChargeRoutes from './routes/ChargeRoutes'
 
 const whitelist: Array<string | undefined> = [
   "https://app-mhd.pages.dev"
@@ -29,6 +30,7 @@ app.use(cors({
 
 app.use("/users", UserRoutes)
 app.use("/measurements", UserMeasurements)
+app.use("/charge", ChargeRoutes)
 
 // Block swagger in production 
 if (process.env.AMBIENT !== "production") {
