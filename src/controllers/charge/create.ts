@@ -4,7 +4,11 @@ import { User } from '../../models/user'
 
 export class ChargeCreate {
   static async create(req: Request, res: Response) {
-    const { clean, deadlift, userId } = req.body
+    const { 
+      clean, cleanJerk, powerClean, 
+      squatClean, frontSquat, backSquat, 
+      snatch, powerSnatch, deadlift, userId 
+    } = req.body
 
     if (!userId) {
       return res.status(422).json({
@@ -14,13 +18,24 @@ export class ChargeCreate {
 
     User.findById(userId)
       .then(() => {
-        Charge.create({ clean, deadlift, userId })
+        Charge.create({ 
+          clean, cleanJerk, powerClean, 
+          squatClean, frontSquat, backSquat, 
+          snatch, powerSnatch, deadlift, userId 
+        })
           .then(response => {
             return res.status(201).json({
-              clean,
-              deadlift,
-              userId,
-              id: response._id
+              id: response._id,
+              clean: response.clean, 
+              cleanJerk: response.cleanJerk, 
+              powerClean: response.powerClean, 
+              squatClean: response.squatClean, 
+              frontSquat: response.frontSquat, 
+              backSquat: response.backSquat, 
+              snatch: response.snatch, 
+              powerSnatch: response.powerSnatch, 
+              deadlift: response.deadlift, 
+              userId
             })
           })
           .catch(() => {

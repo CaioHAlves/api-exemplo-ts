@@ -5,7 +5,11 @@ import { User } from '../../models/user'
 export class ChargeUpdate {
   static async update(req: Request, res: Response) {
     const { id } = req.params
-    const { clean, deadlift, userId } = req.body
+    const { 
+      clean, cleanJerk, powerClean, 
+      squatClean, frontSquat, backSquat, 
+      snatch, powerSnatch, deadlift, userId 
+    } = req.body
 
     if (!userId) {
       return res.status(422).json({
@@ -15,13 +19,24 @@ export class ChargeUpdate {
 
     User.findById(userId)
       .then(() => {
-        Charge.findByIdAndUpdate({ _id: id }, { clean, deadlift })
+        Charge.findByIdAndUpdate({ _id: id }, { 
+          clean, cleanJerk, powerClean, 
+          squatClean, frontSquat, backSquat, 
+          snatch, powerSnatch, deadlift, userId 
+        })
           .then(response => {
             return res.status(200).json({
-              clean,
-              deadlift,
-              userId,
-              id: response!._id
+              id: response!._id,
+              clean: response!.clean, 
+              cleanJerk: response!.cleanJerk, 
+              powerClean: response!.powerClean, 
+              squatClean: response!.squatClean, 
+              frontSquat: response!.frontSquat, 
+              backSquat: response!.backSquat, 
+              snatch: response!.snatch, 
+              powerSnatch: response!.powerSnatch, 
+              deadlift: response!.deadlift, 
+              userId
             })
           })
           .catch(() => {

@@ -1,6 +1,4 @@
-import { JsonObject, SwaggerOptions, SwaggerUiOptions } from 'swagger-ui-express'
-
-export const swaggerConfig: JsonObject | SwaggerOptions | SwaggerUiOptions = {
+export const swaggerConfig = {
   openapi: "3.0.3",
   info: {
     title: "API MHD - Mohamed",
@@ -335,15 +333,43 @@ export const swaggerConfig: JsonObject | SwaggerOptions | SwaggerUiOptions = {
         properties: {
           clean: {
             type: "number",
-            description: "Peso (em kg)"
+            required: false
+          },
+          cleanJerk: {
+            type: "number",
+            required: false
+          },
+          powerClean: {
+            type: "number",
+            required: false
+          },
+          squatClean: {
+            type: "number",
+            required: false
+          },
+          frontSquat: {
+            type: "number",
+            required: false
+          },
+          backSquat: {
+            type: "number",
+            required: false
+          },
+          snatch: {
+            type: "number",
+            required: false
+          },
+          powerSnatch: {
+            type: "number",
+            required: false
           },
           deadlift: {
             type: "number",
-            description: "Peso (em kg)"
+            required: false
           },
           userId: {
             type: "string",
-            description: "Id usuario"
+            required: true
           }
         }
       },
