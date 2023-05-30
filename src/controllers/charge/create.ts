@@ -7,7 +7,8 @@ export class ChargeCreate {
     const { 
       clean, cleanJerk, powerClean, 
       squatClean, frontSquat, backSquat, 
-      snatch, powerSnatch, deadlift, userId 
+      snatch, powerSnatch, deadlift, userId,
+      jerk
     } = req.body
 
     if (!userId) {
@@ -21,7 +22,8 @@ export class ChargeCreate {
         Charge.create({ 
           clean, cleanJerk, powerClean, 
           squatClean, frontSquat, backSquat, 
-          snatch, powerSnatch, deadlift, userId 
+          snatch, powerSnatch, deadlift, userId ,
+          jerk
         })
           .then(response => {
             return res.status(201).json({
@@ -35,6 +37,7 @@ export class ChargeCreate {
               snatch: response.snatch, 
               powerSnatch: response.powerSnatch, 
               deadlift: response.deadlift, 
+              jerk: response.jerk,
               userId
             })
           })

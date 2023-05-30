@@ -41,6 +41,10 @@ export const Charge = mongoose.model(
       type: Number,
       required: false
     },
+    jerk: {
+      type: Number,
+      required: false
+    },
     userId: {
       type: String,
       required: true

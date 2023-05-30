@@ -363,6 +363,10 @@ export const swaggerConfig = {
             type: "number",
             required: false
           },
+          jerk: {
+            type: "number",
+            required: false
+          },
           deadlift: {
             type: "number",
             required: false

@@ -8,7 +8,8 @@ export class ChargeUpdate {
     const { 
       clean, cleanJerk, powerClean, 
       squatClean, frontSquat, backSquat, 
-      snatch, powerSnatch, deadlift, userId 
+      snatch, powerSnatch, deadlift, userId,
+      jerk
     } = req.body
 
     if (!userId) {
@@ -22,7 +23,8 @@ export class ChargeUpdate {
         Charge.findByIdAndUpdate({ _id: id }, { 
           clean, cleanJerk, powerClean, 
           squatClean, frontSquat, backSquat, 
-          snatch, powerSnatch, deadlift, userId 
+          snatch, powerSnatch, deadlift, userId,
+          jerk
         })
           .then(response => {
             return res.status(200).json({
@@ -35,7 +37,8 @@ export class ChargeUpdate {
               backSquat, 
               snatch, 
               powerSnatch, 
-              deadlift, 
+              deadlift,
+              jerk,
               userId
             })
           })
