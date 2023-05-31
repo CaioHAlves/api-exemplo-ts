@@ -9,7 +9,39 @@ export const Charge = mongoose.model(
       type: Number,
       required: false
     },
+    cleanJerk: {
+      type: Number,
+      required: false
+    },
+    powerClean: {
+      type: Number,
+      required: false
+    },
+    squatClean: {
+      type: Number,
+      required: false
+    },
+    frontSquat: {
+      type: Number,
+      required: false
+    },
+    backSquat: {
+      type: Number,
+      required: false
+    },
+    snatch: {
+      type: Number,
+      required: false
+    },
+    powerSnatch: {
+      type: Number,
+      required: false
+    },
     deadlift: {
+      type: Number,
+      required: false
+    },
+    jerk: {
       type: Number,
       required: false
     },
