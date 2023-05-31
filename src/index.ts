@@ -7,9 +7,9 @@ import UserRoutes from './routes/UserRoutes'
 import UserMeasurements from './routes/UserMeasurements'
 import ChargeRoutes from './routes/ChargeRoutes'
 
-const whitelist: Array<string> = [
+const whitelist: Array<string | undefined> = [
   "https://app-mhd.pages.dev",
-  "http>//localhost:5173"
+  "http://localhost:5173"
 ]
 
 const port = process.env.PORT
@@ -18,10 +18,15 @@ const app = express()
 
 app.use(express.json())
 app.use(cors({
-  origin: whitelist,
-  allowedHeaders: whitelist,
-  methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH', 'OPTIONS'],
-  credentials: false
+  origin: process.env.AMBIENT !== "production" ? "*" : (origin, callback) => {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error("Not allowed by CORS"))
+    }
+  },
+  methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH'],
+  credentials: true
 }))
 
 app.use("/users", UserRoutes)

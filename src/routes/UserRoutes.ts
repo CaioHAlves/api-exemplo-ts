@@ -9,7 +9,11 @@ import { UserUpdate } from '../controllers/user/update'
 const router = Router()
 
 router.post("/create", UserCreate.create)
-router.post("/login", UserLogin.post)
+router.post("/login", (req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173")
+
+  next()
+}, UserLogin.post)
 router.get("/getAll", UserGetAll.getAllUsers)
 router.patch("/update/:userId", UserUpdate.update)
 router.delete("/delete/:userId", UserDelete.delete)
