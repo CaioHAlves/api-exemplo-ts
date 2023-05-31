@@ -9,9 +9,9 @@ type IQuery = {
 }
 
 export class UserGetAll {
-  static async getAllUsers(req: Request<any, any, any, IQuery>, res: Response) {
+  static async getAllUsers(req: Request, res: Response) {
 
-    const { name, email, page, limit } = req.query
+    const { name, email, page, limit } = req.query as unknown as IQuery
 
     let matchs: any = {}
 
