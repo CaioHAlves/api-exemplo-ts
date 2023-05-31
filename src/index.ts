@@ -25,10 +25,6 @@ app.use(cors({
       callback(new Error("Not allowed by CORS"))
     }
   },
-  allowedHeaders: process.env.AMBIENT === "production" ? [
-    "https://app-mhd.pages.dev",
-    "http://localhost:5173"
-  ] : undefined,
   methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH'],
   credentials: true
 }))
