@@ -25,7 +25,7 @@ app.use(cors({
     }
   },
   methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH'],
-  credentials: true
+  credentials: false
 }))
 
 app.use("/users", UserRoutes)
