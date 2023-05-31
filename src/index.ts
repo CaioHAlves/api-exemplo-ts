@@ -8,8 +8,7 @@ import UserMeasurements from './routes/UserMeasurements'
 import ChargeRoutes from './routes/ChargeRoutes'
 
 const whitelist: Array<string | undefined> = [
-  "https://app-mhd.pages.dev",
-  "http://localhost:5173"
+  "https://app-mhd.pages.dev"
 ]
 
 const port = process.env.PORT
