@@ -295,6 +295,72 @@ export const swaggerConfig = {
         }
       }
     },
+    "/training/create": {
+      post: {
+        tags: ["Training"],
+        description: "Cria um treino",
+        parameters: [
+          { in: "header", name: "id", required: true }
+        ],
+        requestBody: {
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                $ref: "#/components/schemas/Training"
+              }
+            }
+          }
+        },
+        responses: {
+          200: {
+            description: "ok"
+          },
+          201: {
+            description: "Treino criado"
+          }
+        }
+      }
+    },
+    "/training/patch/{id}": {
+      patch: {
+        tags: ["Training"],
+        description: "Altera um treino",
+        parameters: [
+          { in: "path", name: "id", required: true },
+          { in: "header", name: "idusuario", required: true }
+        ],
+        requestBody: {
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                $ref: "#/components/schemas/Training"
+              }
+            }
+          }
+        },
+        responses: {
+          200: {
+            description: "ok"
+          },
+          201: {
+            description: "Treino alterado"
+          }
+        }
+      }
+    },
+    "/training/get": {
+      get: {
+        tags: ["Training"],
+        description: "Recupera um treino",
+        responses: {
+          200: {
+            description: "ok"
+          }
+        }
+      }
+    }
   },
   components: {
     schemas: {
@@ -374,6 +440,31 @@ export const swaggerConfig = {
           userId: {
             type: "string",
             required: true
+          }
+        }
+      },
+      Training: {
+        type: "object",
+        properties: {
+          heating: {
+            type: "string",
+            required: false
+          },
+          practice: {
+            type: "string",
+            required: false
+          },
+          fortification: {
+            type: "string",
+            required: false
+          },
+          wod: {
+            type: "string",
+            required: false
+          },
+          name: {
+            type: "string",
+            required: false
           }
         }
       },
