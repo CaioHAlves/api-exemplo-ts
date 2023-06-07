@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express"
 
 export const configHeaders = (req: Request, res: Response, next: NextFunction) => {
-  console.log(req.hostname)
+
   const whitelist: Array<string | undefined> = [
     "https://app-mhd.pages.dev",
     "https://app-mhd.vercel.app"
