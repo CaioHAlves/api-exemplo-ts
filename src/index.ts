@@ -9,7 +9,8 @@ import ChargeRoutes from './routes/ChargeRoutes'
 import TrainingRoutes from './routes/TrainingRoutes'
 
 const whitelist: Array<string | undefined> = [
-  "https://app-mhd.pages.dev"
+  "https://app-mhd.pages.dev",
+  "https://app-mhd.vercel.app"
 ]
 
 const port = process.env.PORT
