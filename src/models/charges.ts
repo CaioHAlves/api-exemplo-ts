@@ -45,6 +45,10 @@ export const Charge = mongoose.model(
       type: Number,
       required: false
     },
+    oneMile: {
+      type: String,
+      required: false
+    },
     userId: {
       type: String,
       required: true

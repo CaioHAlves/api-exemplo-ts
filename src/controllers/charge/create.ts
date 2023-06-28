@@ -8,7 +8,7 @@ export class ChargeCreate {
       clean, cleanJerk, powerClean, 
       squatClean, frontSquat, backSquat, 
       snatch, powerSnatch, deadlift, userId,
-      jerk
+      jerk, oneMile
     } = req.body
 
     if (!userId) {
@@ -36,7 +36,8 @@ export class ChargeCreate {
               backSquat: response.backSquat, 
               snatch: response.snatch, 
               powerSnatch: response.powerSnatch, 
-              deadlift: response.deadlift, 
+              deadlift: response.deadlift,
+              oneMile: response.oneMile,
               jerk: response.jerk,
               userId
             })

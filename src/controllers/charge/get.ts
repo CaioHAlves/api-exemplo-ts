@@ -26,6 +26,7 @@ export class ChargeGet {
             powerSnatch: response.powerSnatch, 
             deadlift: response.deadlift, 
             jerk: response.jerk,
+            oneMile: response.oneMile,
             userId
           })
         } else {

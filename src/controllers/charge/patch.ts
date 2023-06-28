@@ -9,7 +9,7 @@ export class ChargeUpdate {
       clean, cleanJerk, powerClean, 
       squatClean, frontSquat, backSquat, 
       snatch, powerSnatch, deadlift, userId,
-      jerk
+      jerk, oneMile
     } = req.body
 
     if (!userId) {
@@ -39,6 +39,7 @@ export class ChargeUpdate {
               powerSnatch, 
               deadlift,
               jerk,
+              oneMile,
               userId
             })
           })

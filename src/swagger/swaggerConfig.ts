@@ -437,6 +437,10 @@ export const swaggerConfig = {
             type: "number",
             required: false
           },
+          oneMile: {
+            type: "string",
+            required: false
+          },
           userId: {
             type: "string",
             required: true
