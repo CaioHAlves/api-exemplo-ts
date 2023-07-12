@@ -24,11 +24,11 @@ export class ChargeUpdate {
           clean, cleanJerk, powerClean, 
           squatClean, frontSquat, backSquat, 
           snatch, powerSnatch, deadlift, userId,
-          jerk
+          jerk, oneMile
         })
-          .then(response => {
+          .then(() => {
             return res.status(200).json({
-              id: response!._id,
+              id,
               clean, 
               cleanJerk, 
               powerClean, 
